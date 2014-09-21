@@ -7,7 +7,7 @@ IterizerJs makes it easier to write code that makes extensive use of ES6 iterabl
   * `limit()`, `nthItem()` and `first()` methods are provided to reduce the number of items returned by long-running and infinite iterables.
   * Other helpful methods like `join()`, `toArray()`, `sum()` & `product()` are also made available.
 
-By making extensive use of ES6 iterators, ES6 generators & the ES5 `Array` methods, you can write more _concise_ and more _re-usable_ code.
+By making extensive use of ES6 iterators, ES6 generators & the ES5 `Array` methods, you can write more _concise_ and more _re-usable_ code. You can view the [IterizerJs spec tests](https://github.com/dchambers/IterizerJs/blob/master/spec/index.html) to get more information.
 
 ## More Concise Code
 
