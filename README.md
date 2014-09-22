@@ -1,13 +1,13 @@
 # IterizerJs
 
-IterizerJs makes it easier to write code that makes extensive use of ES6 iterables:
+IterizerJs makes it easier to write code that makes extensive use of ES6 iterables. It provides:
 
-  * A `range()` function is provided so you never need to use the classic `for` loop again -- `for...of` and `for...in` can be used instead.
-  * Implementations of the ES5 array methods (`map()`, `filter()`, `every()`, `some()`, `reduce()`, `reduceRight()`, `indexOf()` & `lastIndexOf()`) are provided for use with any iterable.
-  * `limit()`, `nthItem()` and `first()` methods are provided to reduce the number of items returned by long-running and infinite iterables.
-  * Other helpful methods like `join()`, `toArray()`, `sum()` & `product()` are also made available.
+  * A `range()` function so you never need to use the classic `for` loop again &mdash; `for...of` and `for...in` can be used instead.
+  * Implementations of the ES5 array methods (`map()`, `filter()`, `every()`, `some()`, `reduce()`, `reduceRight()`, `indexOf()` & `lastIndexOf()`) for use with any iterable.
+  * `limit()`, `nthItem()` and `first()` methods to reduce the number of items returned by long-running and infinite iterables.
+  * Other helpful methods like `join()`, `toArray()`, `sum()` & `product()`.
 
-By making extensive use of ES6 iterators, ES6 generators & the ES5 `Array` methods, you can write more _concise_ and more _re-usable_ code. You can view the [IterizerJs spec tests](https://github.com/dchambers/IterizerJs/blob/master/spec/index.html) to get more information.
+By making extensive use of ES6 iterators, ES6 generators & the ES5 array methods, you can write more _concise_ and more _re-usable_ code.
 
 ## More Concise Code
 
@@ -35,7 +35,7 @@ To solve problems [3](https://projecteuler.net/problem=3) & [7](https://projecte
 
 increasing re-use at the functional level.
 
-When we later encounter problem [10](https://projecteuler.net/problem=10), our intuitions are confirmed when we can solve the problem 'Find the sum of all the primes below two million' with this single line of expressive code:
+When we later encounter [problem 10](https://projecteuler.net/problem=10) from Project Euler ('Find the sum of all the primes below two million'), our intuitions are confirmed when we can solve the problem with this single line of code:
 
 ```
 primes().limit(lessThan(2000000)).sum();
