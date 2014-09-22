@@ -9,6 +9,8 @@ IterizerJs makes it easier to write code that makes extensive use of ES6 iterabl
 
 By making extensive use of ES6 iterators, ES6 generators & the ES5 array methods, you can write more _concise_ and more _re-usable_ code.
 
+You can run ES6 generators and iterators natively in Node.js, Firefox & Chrome (`enable-javaScript-harmony` flag must be enabled), and you can run them in all other browsers by using [regenerator](https://facebook.github.io/regenerator/) to convert your code to ES5.
+
 ## More Concise Code
 
 For example, here's the solution for [problem 6](https://projecteuler.net/problem=6) in [Project Euler](https://projecteuler.net/):
