@@ -4,11 +4,11 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Iterizerjs : IterizerJs makes it easier to write code that makes extensive use of ES6 iterables">
+    <meta name="description" content="IterizerJs : Expressive &amp; concise code using ES6 iterables">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Iterizerjs</title>
+    <title>IterizerJs</title>
   </head>
 
   <body>
@@ -18,8 +18,8 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/dchambers/iterizerjs">View on GitHub</a>
 
-          <h1 id="project_title">Iterizerjs</h1>
-          <h2 id="project_tagline">IterizerJs makes it easier to write code that makes extensive use of ES6 iterables</h2>
+          <h1 id="project_title">IterizerJs</h1>
+          <h2 id="project_tagline">Expressive &amp; concise code using ES6 iterables</h2>
 
             <section id="downloads">
               <a class="zip_download_link" href="https://github.com/dchambers/iterizerjs/zipball/master">Download this project as a .zip file</a>
@@ -31,44 +31,154 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        <p>IterizerJs makes it easier to write code that makes extensive use of ES6 iterables. Banish the arcane C-style <code>for</code> loop, and write cleaner, more expressive and concise code instead.</p>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>Why you might want to use IterizerJs:</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<ul>
+<li>
+<strong>More Concise Code</strong>: ES6 Iterables/Generators + ES5 Array Methods + IterizerJs = More Expressive &amp; More Concise code.</li>
+<li>
+<strong>Better Functional Re-use</strong>: Generator Funcitons combined with the IterizerJs's <code>limit()</code> method lead to higher code re-use at the functional level.</li>
+<li>
+<strong>Project Euler Hardened</strong>: IterizerJs was discovered by attempting to solve the first ten problems in <a href="https://projecteuler.net/">Project Euler</a> using ES6 iterables/generators and the ES5 <code>Array</code> methods.</li>
+</ul><p>See the <a href="https://github.com/dchambers/iterizerjs">GitHub page</a> for details on where you can use it, and how to install it.</p>
+
+<h2>
+<a name="using-iterizerjs" class="anchor" href="#using-iterizerjs"><span class="octicon octicon-link"></span></a>Using IterizerJs</h2>
+
+<p>IterizerJs can be used with CommonJs, AMD or just plain vanilla JavaScript. In CommonJs, for example, we could write code like this:</p>
+
+<pre><code>var it = require('iterizerjs');
+
+// find the sum of all numbers from 1 to 10
+it.range(10).sum();
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>Unlike library code that should not pollute the global namespace, app code may prefer to <em>install</em> IterizerJs so that it's functions can be accessed globally, for example:</p>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<pre><code>var it = require('iterizerjs');
+it.install();
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+// find the sum of all numbers from 1 to 10
+range(10).sum();
+</code></pre>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<p>All examples from this point on will assume that the <code>install()</code> method has been called, and that all IterizerJs methods are available globally.</p>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<h2>
+<a name="counted-loops" class="anchor" href="#counted-loops"><span class="octicon octicon-link"></span></a>Counted Loops</h2>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<p>Thanks to ES6, you will never need to write an arcane C-style <code>for</code> loop again. Instead, you can write code like this:</p>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<pre><code>for(var n of range(10)) {
+    // do something with the numbers from 1 to 10
+}
+</code></pre>
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<p>Unlike C, Java &amp; JavaScript, etc, which are zero-based, the provided <code>range()</code> method is one-based, since zero based counting normally only makes sense if you are doing pointer arithmetic, or if you are using old-style <code>for</code> loops to index zero-based arrays. Since <code>for...of</code> and <code>for...in</code> allow arrays to be iterated without maintaining an index, and since real-world problems are normally one based, the <code>range()</code> functions start from one unless instructed otherwise.</p>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>To iterate the numbers 0 to 9, we could instead write:</p>
+
+<pre><code>for(var n of range(0, 9)) {
+    // do something...
+}
+</code></pre>
+
+<p>we can count down from 10 to 1 by inverting the arguments:</p>
+
+<pre><code>for(var n of range(10, 1)) {
+    // do something...
+}
+</code></pre>
+
+<p>or we could iterate only even numbers from 2 to 10 by providing a <code>step</code> argument, for example:</p>
+
+<pre><code>for(var n of range(2, 10, 2)) {
+    // do something with the numbers 2, 4, 6, 8, 10
+}
+</code></pre>
+
+<h2>
+<a name="es5-array-methods" class="anchor" href="#es5-array-methods"><span class="octicon octicon-link"></span></a>ES5 Array Methods</h2>
+
+<p>IterizerJs provides implementations of the ES5 Array methods, <code>map()</code>, <code>filter()</code>, <code>every()</code>, <code>some()</code> &amp; <code>reduce()</code>, that operate on <em>iterables</em>, and which themselves return an <em>iterable</em>. These can be chained together to produce concise yet descriptive code, such as:</p>
+
+<pre><code>range(-5, 5).filter(isGreaterThan(0)).map(times(10));
+</code></pre>
+
+<h2>
+<a name="limiting-what-an-iterable-object-or-generator-function-returns" class="anchor" href="#limiting-what-an-iterable-object-or-generator-function-returns"><span class="octicon octicon-link"></span></a>Limiting what an iterable object or generator function returns.</h2>
+
+<p>Whereas with normal functions, it is often necesarry to create multiple variants of a function depending on what you need it to return, with ES6 generator functions it is often easier to produce functions that return all possible results, and then limit how long they run for externally. To help with this, a <code>limit()</code> method is provided that can be used as follows:</p>
+
+<pre><code>// display the first 5 prime numbers
+primes().limit(5);
+</code></pre>
+
+<p>Or to instead display the 5th to 10th prime numbers we could write:</p>
+
+<pre><code>primes().limit(5, 10);
+</code></pre>
+
+<p>Alternatively, to display all primes whose value is less than 100, we can write:</p>
+
+<pre><code>primes().limit(isLessThan(100));
+</code></pre>
+
+<p>To show exactly the 100th prime we can write:</p>
+
+<pre><code>primes().limit(100,100);
+</code></pre>
+
+<p>or better yet, use the <code>nthItem()</code> convenience method:</p>
+
+<pre><code>primes().nthItem(100);
+</code></pre>
+
+<p>Similarly, to get the first item we can use the <code>first()</code> method as follows:</p>
+
+<pre><code>primes().first();
+</code></pre>
+
+<h2>
+<a name="filters" class="anchor" href="#filters"><span class="octicon octicon-link"></span></a>Filters</h2>
+
+<p>IterizerJs comes with a number of helpful filter functions that can be used with the <code>filter()</code> and <code>limit()</code> methods. These include the numeric filters:</p>
+
+<ul>
+<li><code>isLessThan(num)</code></li>
+<li><code>isLessThanOrEqualTo(num)</code></li>
+<li><code>isGreaterThan(num)</code></li>
+<li><code>isGreaterThanOrEqualTo(num)</code></li>
+</ul><p>and the string based filters:</p>
+
+<ul>
+<li><code>equals(str)</code></li>
+<li><code>beginsWith(str)</code></li>
+<li><code>endsWith(str)</code></li>
+<li><code>contains(str)</code></li>
+<li><code>matches(regExp)</code></li>
+</ul><h2>
+<a name="string-iteration" class="anchor" href="#string-iteration"><span class="octicon octicon-link"></span></a>String Iteration</h2>
+
+<p>IterizerJs provides a <code>chars()</code> method for iterating strings which can be used as follows:</p>
+
+<pre><code>// produces the string 'a,b,c'
+'abc'.chars().join();
+</code></pre>
+
+<h2>
+<a name="other-helpful-methods" class="anchor" href="#other-helpful-methods"><span class="octicon octicon-link"></span></a>Other helpful methods</h2>
+
+<p>A number of other helpful methods like <code>join()</code>, <code>toArray()</code>, <code>sum()</code> &amp; <code>product()</code> are also provided. At any time, the definitive list of available methods can be found by scanning the <a href="https://github.com/dchambers/iterizerjs/blob/master/lib/iterizer.js">source code</a>.</p>
       </section>
     </div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Iterizerjs maintained by <a href="https://github.com/dchambers">dchambers</a></p>
+        <p class="copyright">IterizerJs maintained by <a href="https://github.com/dchambers">dchambers</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
