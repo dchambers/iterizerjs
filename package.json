@@ -1,25 +1,25 @@
 {
-  "name": "iterizerjs",
-  "version": "0.0.1",
-  "description": "Expressive & concise code using ES6 iterables",
-  "main": "lib/iterizer.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/dchambers/IterizerJs.git"
-  },
-  "keywords": [
-    "ES6",
-    "Iterators",
-    "Generators",
-    "ES5",
-    "Arrays"
-  ],
-  "author": "Dominic Chambers",
-  "license": "Apache License, Version 2.0",
-  "bugs": {
-    "url": "https://github.com/dchambers/IterizerJs/issues"
-  }
+	"name": "iterizerjs",
+	"version": "0.0.1",
+	"description": "Expressive & concise code using ES6 iterables",
+	"main": "lib/iterizer.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/dchambers/IterizerJs.git"
+	},
+	"keywords": [
+		"ES6",
+		"Iterators",
+		"Generators",
+		"ES5",
+		"Arrays"
+	],
+	"author": "Dominic Chambers",
+	"license": "Apache License, Version 2.0",
+	"bugs": {
+		"url": "https://github.com/dchambers/IterizerJs/issues"
+	}
 }
