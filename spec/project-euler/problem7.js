@@ -1,3 +1,5 @@
+var primes = require('./primes.js');
+
 describe('Project Euler Problem #7', function() {
 	it('displays the 6th prime number', function() {
 		expect(primes().nthItem(6)).toBe(13);

@@ -1,6 +1,3 @@
-// install IterizerJs
-iterizer.install();
-
 // TODO: get rid of this method once Chrome fixes the bug (see <https://code.google.com/p/chromium/issues/detail?id=415914>) that prevents for...of working with arrays
 function* iterableArray(array) {
 	for(var i = 0; i < array.length; ++i) {
@@ -37,4 +34,6 @@ function* primes(maxPrime) {
 		++nextNum;
 	}
 }
+
+module.exports = primes;
 

@@ -3,8 +3,19 @@
 	"version": "0.0.1",
 	"description": "Expressive & concise code using ES6 iterables",
 	"main": "lib/iterizer.js",
+	"devDependencies": {
+		"mkdirp": "0.5.0",
+		"ncp": "1.0.0",
+		"browserify": "5.12.1",
+		"jasmine-node": "2.0.0-beta4",
+		"karma": "0.12.23",
+		"karma-chrome-launcher": "0.1.4",
+		"karma-jasmine": "0.2.0"
+	},
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"prepublish": "node --harmony scripts/prepublish.js",
+		"test": "node --harmony spec/spec.js",
+		"test-browser": "node --harmony ./node_modules/karma/bin/karma start karma-conf.js"
 	},
 	"repository": {
 		"type": "git",

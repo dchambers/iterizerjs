@@ -1,3 +1,5 @@
+var primes = require('./primes.js');
+
 describe('Project Euler Problem #3', function() {
 	function primeFactors(num) {
 		return primes().limit(lessThan(num)).filter(function(nextPrime) {
