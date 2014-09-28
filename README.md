@@ -1,6 +1,6 @@
 # IterizerJs
 
-IterizerJs makes it easier to write code that makes extensive use of ES6 iterables. It is not a shim, but merely makes it easier to get the most out of ES6 iterables and generators. It provides:
+IterizerJs makes it easier to write code that makes extensive use of ES6 iterables. It is not a polyfill, but merely makes it easier to get the most out of ES6 iterables and generators. It provides:
 
   * A `range()` function so you never need to use the classic `for` loop again &mdash; `for...of` and `for...in` can be used instead.
   * Implementations of the ES5 array methods (`map()`, `filter()`, `every()`, `some()`, `reduce()`, `reduceRight()`, `indexOf()` & `lastIndexOf()`) for use with any iterable.
