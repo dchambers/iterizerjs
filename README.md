@@ -1,45 +1,78 @@
 # IterizerJs
 
-IterizerJs makes it easier to write code that makes extensive use of ES6 iterables. It provides:
+IterizerJs makes it easier to write code that makes extensive use of ES6 iterables. It is not a shim, but merely makes it easier to get the most out of ES6 iterables and generators. It provides:
 
   * A `range()` function so you never need to use the classic `for` loop again &mdash; `for...of` and `for...in` can be used instead.
   * Implementations of the ES5 array methods (`map()`, `filter()`, `every()`, `some()`, `reduce()`, `reduceRight()`, `indexOf()` & `lastIndexOf()`) for use with any iterable.
   * `limit()`, `nthItem()` and `first()` methods to reduce the number of items returned by long-running and infinite iterables.
   * Other helpful methods like `join()`, `toArray()`, `sum()` & `product()`.
 
-By making extensive use of ES6 iterators, ES6 generators & the ES5 array methods, you can write more _concise_ and more _re-usable_ code.
+By making extensive use of ES6 iterators, ES6 generators & the ES5 array methods, you can write more _concise_ and more _re-usable_ code &mdash; see the [home-page](http://dchambers.github.io/iterizerjs/) for more details.
 
-You can run ES6 generators and iterators natively in Node.js, Firefox & Chrome (`enable-javaScript-harmony` flag must be enabled), and you can run them in all other browsers by using [regenerator](https://facebook.github.io/regenerator/) to convert your code to ES5.
+You can run ES6 generators and iterators natively on the following platforms:
 
-## More Concise Code
+  * Chrome 29 (the `enable-javaScript-harmony` flag must be enabled)
+  * Firefox 26.0
+  * Node.js 0.11.4 (the `--harmony` switch must be used)
+  * Older Browsers (by using [regenerator](https://facebook.github.io/regenerator/) to convert your code to ES5 you can run your code in most browsers)
 
-For example, here's the solution for [problem 6](https://projecteuler.net/problem=6) in [Project Euler](https://projecteuler.net/):
+Take a look at the [home-page](http://dchambers.github.io/iterizerjs/) for a more detailed explanation of why you might want to use IterizerJs.
 
-```
-function sumOfSquares(n) {
-	return range(n).map(function(n) {return n * n}).sum();
-}
 
-function squaresOfSums(n) {
-	return Math.pow(range(n).sum(), 2);
-}
+## Installing
 
-console.log(squaresOfSums(10) - sumOfSquares(10));
-```
+### NPM Instructions
 
-## Better Functional Re-use
-
-To solve problems [3](https://projecteuler.net/problem=3) & [7](https://projecteuler.net/problem=7) from [Project Euler](https://projecteuler.net/) in ES5 we might end up creating `primes(numPrimes)`, `primes(maxPrime)` & `nthPrime(n)` methods, whereas with _IterizerJs_ we can create a single `primes()` generator function, and achieve the variations using:
-
-  * `primes().limit(numPrimes)`
-  * `primes().limit(lessThanOrEqualTo(maxPrime))`
-  * `primes().nthPrime(n)`
-
-increasing re-use at the functional level.
-
-When we later encounter [problem 10](https://projecteuler.net/problem=10) from Project Euler ('Find the sum of all the primes below two million'), our intuitions are confirmed when we can solve the problem with this single line of code:
+If you use NPM then you should install as follows:
 
 ```
-primes().limit(lessThan(2000000)).sum();
+npm install iterizerjs
 ```
+
+and start making use of iterizerjs using the following code:
+
+```
+var iterizerjs = require('iterizerjs');
+iterizerjs.install();
+```
+
+### Alternate Instructions
+
+Alternatively, you can download the latest release, unzip, and start making use of iterizerjs using the following code:
+
+```
+<script src="dist/iterizer.js"></script>
+<script>
+	iterizerjs.install();
+</script>
+```
+
+
+# Running Tests
+
+### NPM Instructions
+
+If you've installed via NPM you can run the tests as follows:
+
+```
+npm test
+```
+
+and you can run the tests against real browsers using Karma by running:
+
+```
+npm run test-browser
+```
+
+Finally, you also have the option to manually open 'spec/index.html' in the browser of your choice.
+
+To ensure that changes to the source code automatically cause the bundles to be re-built, you can run:
+
+```
+npm run watch
+```
+
+### Alternate Instructions
+
+If you haven't installed via NPM then there isn't too much point to running the tests since any changes to the source code won't be reflected. However, if you want to anyway, you can run the tests by opening 'spec/index.html' in the browser of your choice.
 
