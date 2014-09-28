@@ -45,24 +45,53 @@
 </ul><p>See the <a href="https://github.com/dchambers/iterizerjs">GitHub page</a> for details on where you can use it, and how to install it.</p>
 
 <h2>
-<a name="using-iterizerjs" class="anchor" href="#using-iterizerjs"><span class="octicon octicon-link"></span></a>Using IterizerJs</h2>
+<a name="more-concise-code" class="anchor" href="#more-concise-code"><span class="octicon octicon-link"></span></a>More Concise Code</h2>
 
-<p>IterizerJs can be used with CommonJs, AMD or just plain vanilla JavaScript. In CommonJs, for example, we could write code like this:</p>
+<p>For example, here's the solution for <a href="https://projecteuler.net/problem=6">problem 6</a> in <a href="https://projecteuler.net/">Project Euler</a>:</p>
 
-<pre><code>var it = require('iterizerjs');
+<pre><code>function sumOfSquares(n) {
+    return range(n).map(function(n) {return n * n}).sum();
+}
 
-// find the sum of all numbers from 1 to 10
-it.range(10).sum();
+function squaresOfSums(n) {
+    return Math.pow(range(n).sum(), 2);
+}
+
+console.log(squaresOfSums(10) - sumOfSquares(10));
 </code></pre>
 
-<p>Unlike library code that should not pollute the global namespace, app code may prefer to <em>install</em> IterizerJs so that it's functions can be accessed globally, for example:</p>
+<h2>
+<a name="better-functional-re-use" class="anchor" href="#better-functional-re-use"><span class="octicon octicon-link"></span></a>Better Functional Re-use</h2>
 
-<pre><code>var it = require('iterizerjs');
-it.install();
+<p>To solve problems <a href="https://projecteuler.net/problem=3">3</a> &amp; <a href="https://projecteuler.net/problem=7">7</a> from <a href="https://projecteuler.net/">Project Euler</a> in ES5 we might end up creating <code>primes(numPrimes)</code>, <code>primes(maxPrime)</code> &amp; <code>nthPrime(n)</code> methods, whereas with <em>IterizerJs</em> we can create a single <code>primes()</code> generator function, and achieve the variations using:</p>
 
-// find the sum of all numbers from 1 to 10
-range(10).sum();
+<ul>
+<li><code>primes().limit(numPrimes)</code></li>
+<li><code>primes().limit(lessThanOrEqualTo(maxPrime))</code></li>
+<li><code>primes().nthPrime(n)</code></li>
+</ul><p>increasing re-use at the functional level.</p>
+
+<p>When we later encounter <a href="https://projecteuler.net/problem=10">problem 10</a> from Project Euler ('Find the sum of all the primes below two million'), our intuitions are confirmed when we can solve the problem with this single line of code:</p>
+
+<pre><code>primes().limit(lessThan(2000000)).sum();
 </code></pre>
+
+<h2>
+<a name="globally-installing-iterizerjs" class="anchor" href="#globally-installing-iterizerjs"><span class="octicon octicon-link"></span></a>Globally Installing IterizerJs</h2>
+
+<p>Although IterizerJs can be <em>required</em>, parts of it are designed to be <em>installed</em> globally, and the benefits of IterizerJs diminish when this can't be done. There are two flavours of global installation:</p>
+
+<ul>
+<li>Global functions (e.g. <code>range()</code>, rather than having to type <code>it.range()</code>)</li>
+<li>Additional methods on built-in objects (Methods are added to <code>Object</code> and <code>String</code>)</li>
+</ul><p>Accordingly, two types of installation are typical:</p>
+
+<ul>
+<li>
+<strong>Installation By App</strong>: we recommend <code>it.install()</code> is invoked since apps are free to affect global state.</li>
+<li>
+<strong>Installation By Library</strong>: we recommend <code>it.installMethods()</code> is invoked since libraries must take care to inter-operate with all other libraries.</li>
+</ul><p>Libraries that are unwilling to install any globals can still use IterizerJs, but will find it of limited value in comparison.</p>
 
 <p>All examples from this point on will assume that the <code>install()</code> method has been called, and that all IterizerJs methods are available globally.</p>
 
