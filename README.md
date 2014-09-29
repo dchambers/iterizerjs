@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/dchambers/iterizerjs.png)](https://travis-ci.org/dchambers/iterizerjs)
+
 # IterizerJs
 
 IterizerJs makes it easier to write code that makes extensive use of ES6 iterables. It is not a polyfill, but merely makes it easier to get the most out of ES6 iterables and generators. It provides:
