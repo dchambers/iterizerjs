@@ -71,10 +71,34 @@ console.log(squaresOfSums(10) - sumOfSquares(10));
 <li><code>primes().nthPrime(n)</code></li>
 </ul><p>increasing re-use at the functional level.</p>
 
+<h3>
+<a name="with-iterizerjs" class="anchor" href="#with-iterizerjs"><span class="octicon octicon-link"></span></a>With IterizerJs</h3>
+
 <p>When we later encounter <a href="https://projecteuler.net/problem=10">problem 10</a> from Project Euler ('Find the sum of all the primes below two million'), our intuitions are confirmed when we can solve the problem with this single line of code:</p>
 
 <pre><code>primes().limit(lessThan(2000000)).sum();
 </code></pre>
+
+<h3>
+<a name="with-es6" class="anchor" href="#with-es6"><span class="octicon octicon-link"></span></a>With ES6</h3>
+
+<p>Alternatively, using only what's available in ES6, you would instead have to write something like this:</p>
+
+<pre><code>function* lessThan(num, items) {
+    for(var n of items) {
+        if(n &lt; num) {
+            yield n;
+        }
+        else {
+            return;
+        }
+    }
+}
+
+Array.from(lessThan(2000000, primes())).sum();
+</code></pre>
+
+<p>which is both less concise and less expressive.</p>
 
 <h2>
 <a name="globally-installing-iterizerjs" class="anchor" href="#globally-installing-iterizerjs"><span class="octicon octicon-link"></span></a>Globally Installing IterizerJs</h2>
