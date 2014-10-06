@@ -2,6 +2,14 @@
 
 # IterizerJs
 
+Expressive & concise code using ES6 iterables:
+
+  * [Home Page](http://dchambers.github.io/iterizerjs/)
+  * [Introductory Blog](http://dchambers.github.io/on-the-discovery-of-iterizerjs/)
+
+
+## Introduction
+
 IterizerJs makes it easier to write code that makes extensive use of ES6 iterables. It is not a polyfill, but merely makes it easier to get the most out of ES6 iterables and generators. It provides:
 
   * A `range()` function so you never need to use the classic `for` loop again &mdash; `for...of` and `for...in` can be used instead.
@@ -9,7 +17,7 @@ IterizerJs makes it easier to write code that makes extensive use of ES6 iterabl
   * `limit()`, `nthItem()` and `first()` methods to reduce the number of items returned by long-running and infinite iterables.
   * Other helpful methods like `join()`, `toArray()`, `sum()` & `product()`.
 
-By making extensive use of ES6 iterators, ES6 generators & the ES5 array methods, you can write more _concise_ and more _re-usable_ code &mdash; see the [home-page](http://dchambers.github.io/iterizerjs/) for more details.
+By making extensive use of ES6 iterators, ES6 generators & the ES5 array methods, you can write more _concise_ and more _re-usable_ code &mdash; see the [home page](http://dchambers.github.io/iterizerjs/) for more details.
 
 You can run ES6 generators and iterators natively on the following platforms:
 
@@ -18,7 +26,7 @@ You can run ES6 generators and iterators natively on the following platforms:
   * Node.js 0.11.4 (the `--harmony` switch must be used)
   * Older Browsers (by using [regenerator](https://facebook.github.io/regenerator/) to convert your code to ES5 you can run your code in most browsers)
 
-Take a look at the [home-page](http://dchambers.github.io/iterizerjs/) for a more detailed explanation of why you might want to use IterizerJs.
+Take a look at the [home page](http://dchambers.github.io/iterizerjs/) for a more detailed explanation of why you might want to use IterizerJs.
 
 
 ## Installing
