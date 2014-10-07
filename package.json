@@ -1,6 +1,6 @@
 {
 	"name": "iterizerjs",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "Expressive & concise code using ES6 iterables",
 	"main": "lib/iterizer.js",
 	"devDependencies": {
