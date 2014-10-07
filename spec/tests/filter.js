@@ -85,13 +85,13 @@ describe('filter()', function() {
 		});
 	});
 
-	describe('not()', function() {
+	describe('not.<filter>', function() {
 		it('returns items that do not match the filter', function() {
-			expect(iterableArray(softFruits).filter(not(endsWith('berry'))).join()).toBe('cherry,fig,grape,kiwi');
+			expect(iterableArray(softFruits).filter(not.endsWith('berry')).join()).toBe('cherry,fig,grape,kiwi');
 		});
 
 		it('returns nothing if all items match', function() {
-			expect(iterableArray(softFruits).filter(not(matches(/[a-z]*/))).join()).toBe('');
+			expect(iterableArray(softFruits).filter(not.matches(/[a-z]*/)).join()).toBe('');
 		});
 	});
 });
