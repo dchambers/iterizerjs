@@ -20,7 +20,7 @@
 	"scripts": {
 		"prepublish": "node --harmony scripts/prepublish.js",
 		"postpublish": "node --harmony scripts/postpublish.js",
-		"test": "node --harmony spec/spec.js",
+		"test": "node --harmony spec/node-spec-runner.js",
 		"test-browser": "node --harmony ./node_modules/karma/bin/karma start karma-conf.js",
 		"watch": "npm-watch"
 	},
