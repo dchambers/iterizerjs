@@ -1,9 +1,4 @@
-// TODO: get rid of this method once Chrome fixes the bug (see <https://code.google.com/p/chromium/issues/detail?id=415914>) that prevents for...of working with arrays
-function* iterableArray(array) {
-	for(var i = 0; i < array.length; ++i) {
-		yield array[i];
-	}
-}
+var iterableArray = require('../iterable-array');
 
 function* primes(maxPrime) {
 	yield 2;
@@ -13,6 +8,7 @@ function* primes(maxPrime) {
 	var nextNum = 3;
 
 	while(true) {
+		// TODO: stop using iterableArray() once Chrome fixes the bug (see <https://code.google.com/p/chromium/issues/detail?id=415914>) that prevents for...of working with arrays
 		var isPrime = iterableArray(primes).limit(lastPrimeDivisor).every(function(primeDivisor) {
 			return (nextNum % primeDivisor) != 0;
 		});
