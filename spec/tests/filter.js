@@ -1,4 +1,4 @@
-var iterableArray = require('../iterable-array');
+var iterableArray = require('../../lib/iterable-array');
 
 describe('filter()', function() {
 	var softFruits = ['blackberry', 'cherry', 'cranberry', 'fig', 'gooseberry', 'grape', 'kiwi', 'raspberry', 'strawberry'];
@@ -82,6 +82,16 @@ describe('filter()', function() {
 
 		it('returns nothing if no items match the filter', function() {
 			expect(iterableArray(softFruits).filter(matches(/^[a-z]{2}$/)).join()).toBe('');
+		});
+	});
+
+	describe('not()', function() {
+		it('returns items that do not match the filter', function() {
+			expect(iterableArray(softFruits).filter(not(endsWith('berry'))).join()).toBe('cherry,fig,grape,kiwi');
+		});
+
+		it('returns nothing if all items match', function() {
+			expect(iterableArray(softFruits).filter(not(matches(/[a-z]*/))).join()).toBe('');
 		});
 	});
 });

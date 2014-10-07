@@ -1,4 +1,4 @@
-var iterableArray = require('../iterable-array');
+var iterableArray = require('../../lib/iterable-array');
 
 function* primes(maxPrime) {
 	yield 2;
