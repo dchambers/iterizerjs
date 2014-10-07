@@ -9,7 +9,7 @@ mkdirp('dist/jasmine-2.0.0', function(err) {
 	}
 	else {
 		createBundle('dist/iterizer.js', ['./lib/global-iterizer.js']);
-		createBundle('dist/iterizer-spec-tests.js', ['./spec/tests/tests.spec.js']);
+		createBundle('dist/iterizer-spec-tests.js', ['./spec/test/tests.spec.js']);
 		createBundle('dist/iterizer-install-spec-tests.js', ['./spec/test-install/install-methods.spec.js']);
 		createBundle('dist/iterizer-project-euler-spec-tests.js', ['./spec/project-euler/project-euler.spec.js']);
 
