@@ -1,4 +1,12 @@
-jn = require('jasmine-node');
-jn.run({specFolders:['./spec/test-install']});
-jn.run({specFolders:['./spec/tests', './spec/project-euler']});
+var jn = require('jasmine-node');
+console.log('Test Install:');
+jn.run({specFolders:['./spec/test-install'], onComplete:function() {
+	console.log('');
+	console.log('Spec Tests:');
+	jn.run({specFolders:['./spec/tests'], onComplete:function() {
+		console.log('');
+		console.log('Project Euler:');
+		jn.run({specFolders:['./spec/project-euler']});
+	}});
+}});
 
