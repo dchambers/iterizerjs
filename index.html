@@ -49,16 +49,16 @@
 
 <p>For example, here's the solution for <a href="https://projecteuler.net/problem=6">problem 6</a> in <a href="https://projecteuler.net/">Project Euler</a>:</p>
 
-<pre><code>function sumOfSquares(n) {
-    return range(n).map(function(n) {return n * n}).sum();
-}
+<div class="highlight highlight-javascript"><pre><span class="kd">function</span> <span class="nx">sumOfSquares</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">range</span><span class="p">(</span><span class="nx">n</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="nx">n</span> <span class="o">*</span> <span class="nx">n</span><span class="p">}).</span><span class="nx">sum</span><span class="p">();</span>
+<span class="p">}</span>
 
-function squaresOfSums(n) {
-    return Math.pow(range(n).sum(), 2);
-}
+<span class="kd">function</span> <span class="nx">squaresOfSums</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="nx">range</span><span class="p">(</span><span class="nx">n</span><span class="p">).</span><span class="nx">sum</span><span class="p">(),</span> <span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
 
-console.log(squaresOfSums(10) - sumOfSquares(10));
-</code></pre>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">squaresOfSums</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">-</span> <span class="nx">sumOfSquares</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+</pre></div>
 
 <h2>
 <a name="better-functional-re-use" class="anchor" href="#better-functional-re-use"><span class="octicon octicon-link"></span></a>Better Functional Re-use</h2>
@@ -76,27 +76,27 @@ console.log(squaresOfSums(10) - sumOfSquares(10));
 
 <p>When we later encounter <a href="https://projecteuler.net/problem=10">problem 10</a> from Project Euler ('Find the sum of all the primes below two million'), our intuitions are confirmed when we can solve the problem with this single line of code:</p>
 
-<pre><code>primes().limit(lessThan(2000000)).sum();
-</code></pre>
+<div class="highlight highlight-javascript"><pre><span class="nx">primes</span><span class="p">().</span><span class="nx">limit</span><span class="p">(</span><span class="nx">lessThan</span><span class="p">(</span><span class="mi">2000000</span><span class="p">)).</span><span class="nx">sum</span><span class="p">();</span>
+</pre></div>
 
 <h3>
 <a name="with-es6" class="anchor" href="#with-es6"><span class="octicon octicon-link"></span></a>With ES6</h3>
 
 <p>Alternatively, using only what's available in ES6, you would instead have to write something like this:</p>
 
-<pre><code>function* lessThan(num, items) {
-    for(var n of items) {
-        if(n &lt; num) {
-            yield n;
-        }
-        else {
-            return;
-        }
-    }
-}
+<div class="highlight highlight-javascript"><pre><span class="kd">function</span><span class="o">*</span> <span class="nx">lessThan</span><span class="p">(</span><span class="nx">num</span><span class="p">,</span> <span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">n</span> <span class="nx">of</span> <span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">n</span> <span class="o">&lt;</span> <span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">yield</span> <span class="nx">n</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-Array.from(lessThan(2000000, primes())).sum();
-</code></pre>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">lessThan</span><span class="p">(</span><span class="mi">2000000</span><span class="p">,</span> <span class="nx">primes</span><span class="p">())).</span><span class="nx">sum</span><span class="p">();</span>
+</pre></div>
 
 <p>which merely begins to duplicate the functionality provided by IterizerJs anyway.</p>
 
@@ -124,75 +124,75 @@ Array.from(lessThan(2000000, primes())).sum();
 
 <p>Thanks to ES6, you will never need to write an arcane C-style <code>for</code> loop again. Instead, you can write code like this:</p>
 
-<pre><code>for(var n of range(10)) {
-    // do something with the numbers from 1 to 10
-}
-</code></pre>
+<div class="highlight highlight-javascript"><pre><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">n</span> <span class="nx">of</span> <span class="nx">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1">// do something with the numbers from 1 to 10</span>
+<span class="p">}</span>
+</pre></div>
 
 <p>Unlike C, Java &amp; JavaScript, etc, which are zero-based, the provided <code>range()</code> method is one-based, since zero based counting normally only makes sense if you are doing pointer arithmetic, or if you are using old-style <code>for</code> loops to index zero-based arrays. Since <code>for...of</code> and <code>for...in</code> allow arrays to be iterated without maintaining an index, and since real-world problems are normally one based, the <code>range()</code> functions start from one unless instructed otherwise.</p>
 
 <p>To iterate the numbers 0 to 9, we could instead write:</p>
 
-<pre><code>for(var n of range(0, 9)) {
-    // do something...
-}
-</code></pre>
+<div class="highlight highlight-javascript"><pre><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">n</span> <span class="nx">of</span> <span class="nx">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1">// do something...</span>
+<span class="p">}</span>
+</pre></div>
 
 <p>we can count down from 10 to 1 by inverting the arguments:</p>
 
-<pre><code>for(var n of range(10, 1)) {
-    // do something...
-}
-</code></pre>
+<div class="highlight highlight-javascript"><pre><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">n</span> <span class="nx">of</span> <span class="nx">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1">// do something...</span>
+<span class="p">}</span>
+</pre></div>
 
 <p>or we could iterate only even numbers from 2 to 10 by providing a <code>step</code> argument, for example:</p>
 
-<pre><code>for(var n of range(2, 10, 2)) {
-    // do something with the numbers 2, 4, 6, 8, 10
-}
-</code></pre>
+<div class="highlight highlight-javascript"><pre><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">n</span> <span class="nx">of</span> <span class="nx">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1">// do something with the numbers 2, 4, 6, 8, 10</span>
+<span class="p">}</span>
+</pre></div>
 
 <h2>
 <a name="es5-array-methods" class="anchor" href="#es5-array-methods"><span class="octicon octicon-link"></span></a>ES5 Array Methods</h2>
 
 <p>IterizerJs provides implementations of the ES5 Array methods, <code>map()</code>, <code>filter()</code>, <code>every()</code>, <code>some()</code> &amp; <code>reduce()</code>, that operate on <em>iterables</em>, and which themselves return an <em>iterable</em>. These can be chained together to produce concise yet descriptive code, such as:</p>
 
-<pre><code>range(-5, 5).filter(isGreaterThan(0)).map(times(10));
-</code></pre>
+<div class="highlight highlight-javascript"><pre><span class="nx">range</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">).</span><span class="nx">filter</span><span class="p">(</span><span class="nx">isGreaterThan</span><span class="p">(</span><span class="mi">0</span><span class="p">)).</span><span class="nx">map</span><span class="p">(</span><span class="nx">times</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+</pre></div>
 
 <h2>
 <a name="limiting-what-an-iterable-object-or-generator-function-returns" class="anchor" href="#limiting-what-an-iterable-object-or-generator-function-returns"><span class="octicon octicon-link"></span></a>Limiting what an iterable object or generator function returns.</h2>
 
 <p>Whereas with normal functions, it is often necesarry to create multiple variants of a function depending on what you need it to return, with ES6 generator functions it is often easier to produce functions that return all possible results, and then limit how long they run for externally. To help with this, a <code>limit()</code> method is provided that can be used as follows:</p>
 
-<pre><code>// display the first 5 prime numbers
-primes().limit(5);
-</code></pre>
+<div class="highlight highlight-javascript"><pre><span class="c1">// display the first 5 prime numbers</span>
+<span class="nx">primes</span><span class="p">().</span><span class="nx">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</pre></div>
 
 <p>Or to instead display the 5th to 10th prime numbers we could write:</p>
 
-<pre><code>primes().limit(5, 10);
-</code></pre>
+<div class="highlight highlight-javascript"><pre><span class="nx">primes</span><span class="p">().</span><span class="nx">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+</pre></div>
 
 <p>Alternatively, to display all primes whose value is less than 100, we can write:</p>
 
-<pre><code>primes().limit(isLessThan(100));
-</code></pre>
+<div class="highlight highlight-javascript"><pre><span class="nx">primes</span><span class="p">().</span><span class="nx">limit</span><span class="p">(</span><span class="nx">isLessThan</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
+</pre></div>
 
 <p>To show exactly the 100th prime we can write:</p>
 
-<pre><code>primes().limit(100,100);
-</code></pre>
+<div class="highlight highlight-javascript"><pre><span class="nx">primes</span><span class="p">().</span><span class="nx">limit</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+</pre></div>
 
 <p>or better yet, use the <code>nthItem()</code> convenience method:</p>
 
-<pre><code>primes().nthItem(100);
-</code></pre>
+<div class="highlight highlight-javascript"><pre><span class="nx">primes</span><span class="p">().</span><span class="nx">nthItem</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+</pre></div>
 
 <p>Similarly, to get the first item we can use the <code>first()</code> method as follows:</p>
 
-<pre><code>primes().first();
-</code></pre>
+<div class="highlight highlight-javascript"><pre><span class="nx">primes</span><span class="p">().</span><span class="nx">first</span><span class="p">();</span>
+</pre></div>
 
 <h2>
 <a name="filters" class="anchor" href="#filters"><span class="octicon octicon-link"></span></a>Filters</h2>
@@ -212,14 +212,19 @@ primes().limit(5);
 <li><code>endsWith(str)</code></li>
 <li><code>contains(str)</code></li>
 <li><code>matches(regExp)</code></li>
-</ul><h2>
+</ul><p>All of the filters can be negated by preceding them with <code>not</code>, for example:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">programmers</span><span class="p">().</span><span class="nx">filter</span><span class="p">(</span><span class="nx">not</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="s1">'Dominic Chambers'</span><span class="p">));</span>
+</pre></div>
+
+<h2>
 <a name="string-iteration" class="anchor" href="#string-iteration"><span class="octicon octicon-link"></span></a>String Iteration</h2>
 
 <p>IterizerJs provides a <code>chars()</code> method for iterating strings which can be used as follows:</p>
 
-<pre><code>// produces the string 'a,b,c'
-'abc'.chars().join();
-</code></pre>
+<div class="highlight highlight-javascript"><pre><span class="c1">// produces the string 'a,b,c'</span>
+<span class="s1">'abc'</span><span class="p">.</span><span class="nx">chars</span><span class="p">().</span><span class="nx">join</span><span class="p">();</span>
+</pre></div>
 
 <h2>
 <a name="other-helpful-methods" class="anchor" href="#other-helpful-methods"><span class="octicon octicon-link"></span></a>Other helpful methods</h2>
