@@ -35,13 +35,13 @@ Take a look at the [home page](http://dchambers.github.io/iterizerjs/) for a mor
 
 If you use NPM then you should install as follows:
 
-```
+``` shell
 npm install iterizerjs
 ```
 
 and start making use of iterizerjs using the following code:
 
-```
+``` javascript
 var iterizerjs = require('iterizerjs');
 iterizerjs.install();
 ```
@@ -50,7 +50,7 @@ iterizerjs.install();
 
 Alternatively, you can download the latest release, unzip, and start making use of iterizerjs using the following code:
 
-```
+``` html
 <script src="dist/iterizer.js"></script>
 <script>
 	iterizerjs.install();
@@ -64,19 +64,19 @@ Alternatively, you can download the latest release, unzip, and start making use 
 
 If you've installed via NPM you can run the tests as follows:
 
-```
+``` shell
 npm test
 ```
 
 which runs all the tests in _jasmine-node_, and the main spec tests in Firefox and Chrome. You can run the tests against Firefox and Chrome, with automatic re-runs as files are changed, using the command:
 
-```
+``` shell
 npm run test-browser
 ```
 
 Finally, you also have the option to manually open 'spec/index.html' in the browser of your choice. To ensure that changes to the source code automatically cause the bundles to be re-built, you can run:
 
-```
+``` shell
 npm run watch
 ```
 
