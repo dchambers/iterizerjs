@@ -62,6 +62,10 @@ module.exports = function(config) {
       Chrome_ES6: {
         base: 'Chrome',
         flags: ['--js-flags=--harmony']
+      },
+      Chrome_Travis_ES6: {
+        base: 'Chrome',
+        flags: ['--js-flags=--harmony', '--no-sandbox']
       }
     },
 

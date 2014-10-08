@@ -18,7 +18,7 @@ jn.run({specFolders:['./spec/test-install'], captureExceptions:true, onComplete:
 			console.log('Browser Tests:');
 
 			setTimeout(function() {
-				karmaServer.start({configFile: path.resolve('karma-conf.js'), singleRun:true}, function(exitCode) {
+				karmaServer.start({configFile: path.resolve('karma-conf.js'), singleRun:true, browsers:['Firefox', 'Chrome_Travis_ES6']}, function(exitCode) {
 					console.log('Karma has exited with ' + exitCode);
 					process.exit(exitCode);
 				});
