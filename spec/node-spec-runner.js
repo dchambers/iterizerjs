@@ -2,18 +2,25 @@ var jn = require('jasmine-node');
 var karmaServer = require('karma').server;
 var path = require('path');
 
-console.log('Test Install:');
+function exitOnFail(hasFailed) {
+	if(hasFailed) {
+		process.exit(-1);
+	}
+}
 
-// TODO: find out how 'node-jasmine' allows you to get test result information so we can return a non-zero exit code
+console.log('Test Install:');
 jn.run({specFolders:['./spec/test-install'], captureExceptions:true, onComplete:function() {
+	exitOnFail(global.jasmineResult.fail);
 	console.log('');
 	console.log('Spec Tests:');
 
 	jn.run({specFolders:['./spec/test'], captureExceptions:true, onComplete:function() {
+		exitOnFail(global.jasmineResult.fail);
 		console.log('');
 		console.log('Project Euler:');
 
 		jn.run({specFolders:['./spec/project-euler'], captureExceptions:true, onComplete:function() {
+			exitOnFail(global.jasmineResult.fail);
 			console.log('');
 			console.log('Browser Tests:');
 
