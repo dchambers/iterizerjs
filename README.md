@@ -68,15 +68,13 @@ If you've installed via NPM you can run the tests as follows:
 npm test
 ```
 
-and you can run the tests against real browsers using Karma by running:
+which runs all the tests in _jasmine-node_, and the main spec tests in Firefox and Chrome. You can run the tests against Firefox and Chrome, with automatic re-runs as files are changed, using the command:
 
 ```
 npm run test-browser
 ```
 
-Finally, you also have the option to manually open 'spec/index.html' in the browser of your choice.
-
-To ensure that changes to the source code automatically cause the bundles to be re-built, you can run:
+Finally, you also have the option to manually open 'spec/index.html' in the browser of your choice. To ensure that changes to the source code automatically cause the bundles to be re-built, you can run:
 
 ```
 npm run watch
