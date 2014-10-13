@@ -1,12 +1,14 @@
+var should = require('chai').should();
 var primes = require('./primes.js');
 
 describe('Project Euler Problem #7', function() {
 	it('displays the 6th prime number', function() {
-		expect(primes().nthItem(6)).toBe(13);
+		primes().nthItem(6).should.equal(13);
 	});
 
 	it('displays the 10001st prime number', function() {
-		expect(primes().nthItem(10001)).toBe(104743);
+		this.timeout(5000);
+		primes().nthItem(10001).should.equal(104743);
 	});
 });
 

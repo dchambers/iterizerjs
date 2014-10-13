@@ -1,3 +1,4 @@
+var should = require('chai').should();
 var primes = require('./primes.js');
 
 describe('Project Euler Problem #3', function() {
@@ -23,19 +24,19 @@ describe('Project Euler Problem #3', function() {
 	}
 
 	it('displays the first ten primes correctly', function() {
-		expect(primes().limit(10).join()).toBe('2,3,5,7,11,13,17,19,23,29');
+		primes().limit(10).join().should.equal('2,3,5,7,11,13,17,19,23,29');
 	});
 
 	it('displays all prime factors of 13195', function() {
-		expect(primeFactors(13195).join()).toBe('5,7,13,29');
+		primeFactors(13195).join().should.equal('5,7,13,29');
 	});
 
 	it('displays the largest prime factor of 13195', function() {
-		expect(largestPrimeFactor(13195)).toBe(29);
+		largestPrimeFactor(13195).should.equal(29);
 	});
 
 	it('displays the largest prime factor of 600851475143', function() {
-		expect(largestPrimeFactor(600851475143)).toBe(6857);
+		largestPrimeFactor(600851475143).should.equal(6857);
 	});
 });
 

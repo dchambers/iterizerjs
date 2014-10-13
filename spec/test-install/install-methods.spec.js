@@ -1,17 +1,18 @@
 var iterizerjs = require('../../lib/iterizer.js');
+var should = require('chai').should();
 var global = this;
 
 describe('it.installMethods()', function() {
 	it('allows the library to be used without having to invoke it.installGlobals() too', function() {
-		expect(global.range).toBeUndefined();
-		expect(Object.prototype.limit).toBeUndefined();
+		should.not.exist(global.range);
+		should.not.exist(Object.prototype.limit);
 
 		iterizerjs.installMethods();
 
-		expect(global.range).toBeUndefined();
-		expect(Object.prototype.limit).toBeDefined();
+		should.not.exist(global.range);
+		should.exist(Object.prototype.limit);
 
-		expect(iterizerjs.range(5).sum()).toBe(15);
+		iterizerjs.range(5).sum().should.equal(15);
 	});
 });
 

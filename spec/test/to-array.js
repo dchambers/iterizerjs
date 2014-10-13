@@ -1,7 +1,9 @@
+var should = require('chai').should();
+
 describe('toArray()', function() {
 	it('allows an iterable to be converted to an array', function() {
-		expect(range(3).toArray().length).toBe(3);
-		expect(range(3).toArray().join()).toBe('1,2,3');
+		range(3).toArray().length.should.equal(3);
+		range(3).toArray().join().should.equal('1,2,3');
 	});
 });
 

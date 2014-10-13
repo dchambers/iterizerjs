@@ -1,9 +1,8 @@
 var fs = require('fs');
-var ncp = require('ncp').ncp;
 var mkdirp = require('mkdirp');
 var browserify = require('browserify');
 
-mkdirp('dist/jasmine-2.0.0', function(err) {
+mkdirp('dist/mocha', function(err) {
 	if(err) {
 		console.error(err);
 	}
@@ -13,11 +12,8 @@ mkdirp('dist/jasmine-2.0.0', function(err) {
 		createBundle('dist/iterizer-install-spec-tests.js', ['./spec/test-install/install-methods.spec.js']);
 		createBundle('dist/iterizer-project-euler-spec-tests.js', ['./spec/project-euler/project-euler.spec.js']);
 
-		ncp('node_modules/jasmine-node/node_modules/jasmine-reporters/lib/jasmine-2.0.0', 'dist/jasmine-2.0.0', function(err) {
-			if(err) {
-				console.error(err);
-			}
-		});
+		fs.createReadStream('node_modules/mocha/mocha.js').pipe(fs.createWriteStream('dist/mocha/mocha.js'));
+		fs.createReadStream('node_modules/mocha/mocha.css').pipe(fs.createWriteStream('dist/mocha/mocha.css'));
 	}
 });
 
@@ -29,4 +25,3 @@ function createBundle(outputFilePath, inputFilePaths) {
 	
 	b.bundle().pipe(fs.createWriteStream(outputFilePath));
 }
-

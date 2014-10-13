@@ -1,3 +1,5 @@
+var should = require('chai').should();
+
 describe('Project Euler Problem #4', function() {
 	function isPalindrome(n) {
 		var str = String(n);
@@ -24,11 +26,11 @@ describe('Project Euler Problem #4', function() {
 	}
 
 	it('displays the largest palindrome beneath 100', function() {
-		expect(largestPalindrome(100)).toBe('9009 formed from 99 and 91');
+		largestPalindrome(100).should.equal('9009 formed from 99 and 91');
 	});
 
 	it('displays the largest palindrome beneath 1000', function() {
-		expect(largestPalindrome(1000)).toBe('580085 formed from 995 and 583');
+		largestPalindrome(1000).should.equal('580085 formed from 995 and 583');
 	});
 });
 

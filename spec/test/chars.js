@@ -1,14 +1,16 @@
+var should = require('chai').should();
+
 describe('chars()', function() {
 	it('allows a string to be iterated character by character', function() {
-		expect('Hello'.chars().join()).toBe('H,e,l,l,o');
+		'Hello'.chars().join().should.equal('H,e,l,l,o');
 	});
 
 	it('allows a single character string to be iterated', function() {
-		expect('X'.chars().join()).toBe('X');
+		'X'.chars().join().should.equal('X');
 	});
 
 	it('correctly handles an empty string', function() {
-		expect(''.chars().toArray().length).toBe(0);
+		''.chars().toArray().length.should.equal(0);
 	});
 });
 

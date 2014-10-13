@@ -1,6 +1,8 @@
+var should = require('chai').should();
+
 describe('product()', function() {
 	it('can return the product of a number of items', function() {
-		expect(range(4).product()).toBe(24);
+		range(4).product().should.equal(24);
 	});
 });
 

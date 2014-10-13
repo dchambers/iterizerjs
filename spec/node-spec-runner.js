@@ -1,36 +1,46 @@
-var jn = require('jasmine-node');
-var karmaServer = require('karma').server;
-var path = require('path');
+// TODO: get all of the suites working again, including the Karma tests, then rename to 'mocha-spec-tests.js'
 
-function exitOnFail() {
-	if(global.jasmineResult.fail) {
-		process.exit(-1);
+var fs = require('fs');
+var path = require('path');
+var Mocha = require('mocha');
+var mocha;
+var karmaServer = require('karma').server;
+
+function exitOnFail(exitCode) {
+	if(exitCode != 0) {
+		process.exit(exitCode);
 	}
 }
 
 console.log('Test Install:');
-jn.run({specFolders:['./spec/test-install'], captureExceptions:true, onComplete:function() {
-	exitOnFail();
+mocha = new Mocha();
+mocha.addFile(path.normalize('spec/test-install/install-methods.spec.js'));
+mocha.run(function(exitCode) {
+	exitOnFail(exitCode);
+
 	console.log('');
 	console.log('Spec Tests:');
 
-	jn.run({specFolders:['./spec/test'], captureExceptions:true, onComplete:function() {
-		exitOnFail();
+	mocha = new Mocha();
+	mocha.addFile(path.normalize('spec/test/tests.spec.js'));
+	mocha.run(function(exitCode) {
+		exitOnFail(exitCode);
+
 		console.log('');
 		console.log('Project Euler:');
 
-		jn.run({specFolders:['./spec/project-euler'], captureExceptions:true, onComplete:function() {
-			exitOnFail();
+		mocha = new Mocha();
+		mocha.addFile(path.normalize('spec/project-euler/project-euler.spec.js'));
+		mocha.run(function(exitCode) {
+			exitOnFail(exitCode);
+
 			console.log('');
 			console.log('Browser Tests:');
 
-			setTimeout(function() {
-				karmaServer.start({configFile: path.resolve('karma-conf.js'), singleRun:true, browsers:['Firefox', 'Chrome_Travis_ES6']}, function(exitCode) {
-					console.log('Karma has exited with ' + exitCode);
-					process.exit(exitCode);
-				});
-			}, 0);
-		}});
-	}});
-}});
-
+			karmaServer.start({configFile: path.resolve('karma-conf.js'), singleRun:true, browsers:['Firefox', 'Chrome_Travis_ES6']}, function(exitCode) {
+				console.log('Karma has exited with ' + exitCode);
+				process.exit(exitCode);
+			});
+		});
+	});
+});

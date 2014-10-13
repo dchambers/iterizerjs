@@ -1,3 +1,5 @@
+var should = require('chai').should();
+
 describe('Project Euler Problem #8', function() {
 	function largestProductInSeries(data, seriesLength) {
 		var largestProduct = 0;
@@ -37,11 +39,11 @@ describe('Project Euler Problem #8', function() {
 		'71636269561882670428252483600823257530420752963450';
 
 	it('displays the largest product using four adjacent digits', function() {
-		expect(largestProductInSeries(data, 4)).toBe(5832);
+		largestProductInSeries(data, 4).should.equal(5832);
 	});
 
 	it('displays the largest product using four adjacent digits', function() {
-		expect(largestProductInSeries(data, 13)).toBe(23514624000);
+		largestProductInSeries(data, 13).should.equal(23514624000);
 	});
 });
 

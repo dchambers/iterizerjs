@@ -1,3 +1,5 @@
+var should = require('chai').should();
+
 describe('Project Euler Problem #2', function() {
 	it('displays the sum of even fibonaci numbers not exeeding four million', function() {
 		var fibItems = [1, 1];
@@ -9,7 +11,7 @@ describe('Project Euler Problem #2', function() {
 			return (i % 2) == 0;
 		});
 
-		expect(evenFibItems.sum()).toBe(4613732);
+		evenFibItems.sum().should.equal(4613732);
 	});
 });
 

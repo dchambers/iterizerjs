@@ -1,3 +1,5 @@
+var should = require('chai').should();
+
 describe('Project Euler Problem #9', function() {
 	/*
 	 * facts:
@@ -27,11 +29,11 @@ describe('Project Euler Problem #9', function() {
 	}
 
 	it('displays the pythagorean triplet whose sum is 12', function() {
-		expect(specialPythagoreanTriplets(12).first()).toBe('3^2 + 4^2 = 5^2 and 3 + 4 + 5 = 12');
+		specialPythagoreanTriplets(12).first().should.equal('3^2 + 4^2 = 5^2 and 3 + 4 + 5 = 12');
 	});
 
 	it('displays the pythagorean triplet whose sum is 1000', function() {
-		expect(specialPythagoreanTriplets(1000).first()).toBe('200^2 + 375^2 = 425^2 and 200 + 375 + 425 = 1000');
+		specialPythagoreanTriplets(1000).first().should.equal('200^2 + 375^2 = 425^2 and 200 + 375 + 425 = 1000');
 	});
 });
 
