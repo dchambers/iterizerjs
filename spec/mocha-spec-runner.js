@@ -1,5 +1,3 @@
-// TODO: get all of the suites working again, including the Karma tests, then rename to 'mocha-spec-tests.js'
-
 var fs = require('fs');
 var path = require('path');
 var Mocha = require('mocha');
@@ -13,6 +11,7 @@ function exitOnFail(exitCode) {
 }
 
 console.log('Test Install:');
+
 mocha = new Mocha();
 mocha.addFile(path.normalize('spec/test-install/install-methods.spec.js'));
 mocha.run(function(exitCode) {
