@@ -5,7 +5,6 @@
 	"main": "lib/iterizer.js",
 	"devDependencies": {
 		"mkdirp": "0.5.0",
-		"ncp": "1.0.0",
 		"browserify": "5.12.1",
 		"mocha": "1.21.5",
 		"chai": "1.9.2",
