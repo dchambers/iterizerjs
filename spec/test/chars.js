@@ -13,4 +13,3 @@ describe('chars()', function() {
 		''.chars().toArray().length.should.equal(0);
 	});
 });
-

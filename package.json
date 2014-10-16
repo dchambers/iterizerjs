@@ -4,15 +4,8 @@
 	"description": "Expressive & concise code using ES6 iterables",
 	"main": "lib/iterizer.js",
 	"devDependencies": {
-		"mkdirp": "0.5.0",
-		"browserify": "5.12.1",
-		"mocha": "1.21.5",
-		"chai": "1.9.2",
-		"karma": "0.12.23",
-		"karma-chrome-launcher": "0.1.4",
-		"karma-firefox-launcher": "0.1.3",
-		"karma-mocha": "0.1.9",
-		"npm-watch": "0.0.0"
+		"dchambers-lib-build-tool": "0.x",
+		"chai": "~1.9.2"
 	},
 	"watch": {
 		"prepublish": "{lib,spec,scripts}/**/*.js"
@@ -20,8 +13,8 @@
 	"scripts": {
 		"prepublish": "node --harmony scripts/prepublish.js",
 		"postpublish": "node --harmony scripts/postpublish.js",
-		"test": "node --harmony spec/mocha-spec-runner.js",
-		"test-browser": "node --harmony ./node_modules/karma/bin/karma start karma-conf.js",
+		"test": "node --harmony scripts/test.js",
+		"test-browser": "node --harmony scripts/test-browser.js",
 		"watch": "npm-watch"
 	},
 	"repository": {
