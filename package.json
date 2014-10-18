@@ -4,8 +4,9 @@
 	"description": "Expressive & concise code using ES6 iterables",
 	"main": "lib/iterizer.js",
 	"devDependencies": {
-		"dchambers-lib-build-tool": "0.x",
-		"chai": "~1.9.2"
+		"dchambers-lib-build-tool": "~0.1",
+		"chai": "~1.9",
+		"npm-watch": "~0.0"
 	},
 	"watch": {
 		"prepublish": "{lib,spec,scripts}/**/*.js"
