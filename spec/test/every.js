@@ -28,12 +28,12 @@ describe('every()', function() {
 	it('throws a nice error if no predicate argument is provided', function() {
 		(function() {
 			range(5).every().next();
-		}).should.throw("a 'predicate' argument must be provided");
+		}).should.throw("predicate argument must be provided");
 	});
 
 	it('throws a nice error if predicate is of the wrong type', function() {
 		(function() {
 			range(5).every(true).next();
-		}).should.throw("'predicate' must be a function");
+		}).should.throw("predicate argument must be a Function");
 	});
 });

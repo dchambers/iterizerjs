@@ -15,25 +15,25 @@ describe('filter()', function() {
 	it('throws a nice error if no filter argument is provided', function() {
 		(function() {
 			range(5).filter().next();
-		}).should.throw("a 'filter' argument must be provided");
+		}).should.throw("filter argument must be provided");
 	});
 
 	it('throws a nice error if filter is of the wrong type', function() {
 		(function() {
 			range(5).filter(true).next();
-		}).should.throw("'filter' must be a function");
+		}).should.throw("filter argument must be a Function");
 	});
 
 	it('throws a nice error if no predicate argument is provided', function() {
 		(function() {
 			range(5).some().next();
-		}).should.throw("a 'predicate' argument must be provided");
+		}).should.throw("predicate argument must be provided");
 	});
 
 	it('throws a nice error if predicate is of the wrong type', function() {
 		(function() {
 			range(5).some(true).next();
-		}).should.throw("'predicate' must be a function");
+		}).should.throw("predicate argument must be a Function");
 	});
 
 	describe('equals()', function() {
@@ -96,4 +96,3 @@ describe('filter()', function() {
 		});
 	});
 });
-

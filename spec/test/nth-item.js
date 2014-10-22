@@ -20,13 +20,12 @@ describe('nthItem()', function() {
 	it('throws a nice error if no n argument is provided', function() {
 		(function() {
 			range(10).nthItem().next();
-		}).should.throw("a 'n' argument must be provided");
+		}).should.throw("n argument must be provided");
 	});
 
 	it('throws a nice error if n is of the wrong type', function() {
 		(function() {
 			range(10).nthItem(true).next();
-		}).should.throw("'n' must be a number");
+		}).should.throw("n argument must be a Number");
 	});
 });
-

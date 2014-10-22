@@ -4,15 +4,15 @@ describe('limit()', function() {
 	function isNegativeNumber(num) {
 		return num <= 0;
 	}
-	
+
 	it('yields the number of items its told to', function() {
 		range(10).limit(3).join().should.equal('1,2,3');
 	});
-	
+
 	it('can can skip some items at the beginning if requested to', function() {
 		range(10).limit(4,6).join().should.equal('4,5,6');
 	});
-	
+
 	it('can can stop yielding once a cut-off function fires', function() {
 		range(-3, 3).limit(isNegativeNumber).join().should.equal('-3,-2,-1,0');
 	});
@@ -20,11 +20,11 @@ describe('limit()', function() {
 	it('throws a nice error if the limit arguments are not numbers', function() {
 		(function() {
 			range(10).limit('1', '5').next();
-		}).should.throw("'from' must be a number");
+		}).should.throw("from argument must be a Number");
 
 		(function() {
 			range(10).limit(1, '5').next();
-		}).should.throw("'to' must be a number");
+		}).should.throw("to argument must be a Number");
 	});
 
 	it('throws a nice error if the single to argument is not a number or function', function() {
@@ -63,4 +63,3 @@ describe('limit()', function() {
 		});
 	});
 });
-

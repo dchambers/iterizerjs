@@ -4,7 +4,7 @@ describe('reduce()', function() {
 	function sum(previousValue, currentValue, index) {
 		return previousValue + currentValue;
 	}
-	
+
 	function sumTimesIndex(previousValue, currentValue, index) {
 		return previousValue + (currentValue * (index + 1));
 	}
@@ -24,25 +24,24 @@ describe('reduce()', function() {
 	it('throws a nice error if no reducer argument is provided', function() {
 		(function() {
 			range(5).reduce().next();
-		}).should.throw("a 'reducer' argument must be provided");
+		}).should.throw("reducer argument must be provided");
 	});
 
 	it('throws a nice error if reducer is of the wrong type', function() {
 		(function() {
 			range(5).reduce(true).next();
-		}).should.throw("'reducer' must be a function");
+		}).should.throw("reducer argument must be a Function");
 	});
 
 	it('throws a nice error if no initialValue argument is provided', function() {
 		(function() {
 			range(5).reduce(function() {}).next();
-		}).should.throw("an 'initialValue' argument must be provided");
+		}).should.throw("initialValue argument must be provided");
 	});
 
 	it('throws a nice error if initialValue is of the wrong type', function() {
 		(function() {
 			range(5).reduce(function() {}, true).next();
-		}).should.throw("'initialValue' must be a number");
+		}).should.throw("initialValue argument must be a Number");
 	});
 });
-

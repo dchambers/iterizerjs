@@ -3,6 +3,9 @@
 	"version": "0.0.5",
 	"description": "Expressive & concise code using ES6 iterables",
 	"main": "lib/iterizer.js",
+	"dependencies": {
+		"typester": "~0.2"
+	},
 	"devDependencies": {
 		"dchambers-lib-build-tool": "~0.1",
 		"chai": "~1.9",

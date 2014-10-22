@@ -8,11 +8,10 @@ describe('join()', function() {
 	it('allows an arbitrary delimiter to be used when joining', function() {
 		range(3).join(', ').should.equal('1, 2, 3');
 	});
-	
+
 	it('throws a nice error if delimiter is of the wrong type', function() {
 		(function() {
 			range(3).join(true).next();
-		}).should.throw("'delimiter' must be a string");
+		}).should.throw("delimiter argument must be a String");
 	});
 });
-
