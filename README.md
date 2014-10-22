@@ -68,7 +68,7 @@ If you've installed via NPM you can run the tests as follows:
 npm test
 ```
 
-which runs all the tests in _jasmine-node_, and the main spec tests in Firefox and Chrome. You can run the tests against Firefox and Chrome, with automatic re-runs as files are changed, using the command:
+which runs all the tests in Node.js (using _mocha_), and the main spec tests in Firefox and Chrome (using _karma_). You can run the tests against Firefox and Chrome, with automatic re-runs as files are changed, using the command:
 
 ``` shell
 npm run test-browser
@@ -83,4 +83,3 @@ npm run watch
 ### Alternate Instructions
 
 If you haven't installed via NPM then there isn't too much point to running the tests since any changes to the source code won't be reflected. However, if you want to anyway, you can run the tests by opening 'spec/index.html' in the browser of your choice.
-
