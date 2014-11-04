@@ -5,7 +5,7 @@
 Expressive & concise code using ES6 iterables:
 
   * [Home Page](http://dchambers.github.io/iterizerjs/)
-  * [Introductory Blog](http://dchambers.github.io/on-the-discovery-of-iterizerjs/)
+  * [Introductory Blog](http://dchambers.github.io/blog/on-the-discovery-of-iterizerjs/)
 
 
 ## Introduction
