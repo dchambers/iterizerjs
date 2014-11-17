@@ -7,8 +7,7 @@ describe('Project Euler Problem #10', function() {
 	});
 
 	it('displays the sum of all primes below 2000000', function() {
-		this.timeout(10000);
+		this.timeout(15000);
 		primes().limit(lessThan(2000000)).sum().should.equal(142913828922);
 	});
 });
-
